@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": ""
+    "test": "",
+    "build-frontend":"cd ../frontend/ && npm run build && cd ../backend && npm run cp-frontend-build ",
+    "cp-frontend-build":"cp -R ../frontend/build build"
   },
   "keywords": [],
   "author": "",
