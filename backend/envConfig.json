@@ -1,0 +1,8 @@
+{
+  "NODE_ENV": "development",
+  "PORT": 7001,
+  "LOGGER_LEVEL": "info",
+  "JWT_SECRET": "1w1lld5f5ndtruly73udbuwd0fcrypt0",
+  "DB": "cryptoi",
+  "DB_URI": "admin:test123@ds151486.mlab.com:51486"
+}

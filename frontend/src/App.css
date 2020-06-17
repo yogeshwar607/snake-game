@@ -1,0 +1,133 @@
+body {
+  background: #9bba5a;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.App {
+
+}
+
+.mainGrid {
+  border: 5px solid #666;
+  width: 500px;
+  height: 500px;
+  margin: auto;
+  margin-top: 50px;
+  position: relative;
+}
+
+.App span {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  /*border-left: 1px solid #000000;*/
+  /*border-top: 1px solid #000000;*/
+  border-radius: 10px;
+}
+
+.App span:last-child {
+  /*border-right: 1px solid #000000;*/
+}
+.App div:last-child {
+  /*border-bottom: 1px solid #000000;*/
+}
+
+.snake {
+  background: #263012;
+  box-shadow: inset 0px 0px 0px 3px #333;
+}
+
+.food {
+  background: #263012;
+  animation: App-logo-spin 2s linear infinite;
+}
+
+.startGame {
+  display: block;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 500px;
+  font-size: 30px;
+  color: #263012;
+  font-family: 'Special Elite', cursive;
+}
+
+.startGame h1 {
+  color: #263012;
+  margin-top: 100px;
+}
+
+.startGame button {
+  padding: 20px 15px;
+  margin: 5px;
+  background: transparent;
+  border: 0;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-family: 'Special Elite', cursive;
+}
+
+.startGame button:hover {
+  background: #263012;
+  color: #9bba5a;
+}
+
+.alive {
+  display: none;
+}
+
+.dead {
+  display: block;
+  background: rgba(0,0,0,0.5);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  color: #ffffff;
+  font-size: 30px;
+}
+
+.scoreBox {
+  position: absolute;
+  top: -30px;
+}
