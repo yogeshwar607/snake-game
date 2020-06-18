@@ -6,7 +6,7 @@ const GameSelection = (props) => {
 
   useEffect(() => {
     setPlayerId(props.location.state.playerId);
-  }, []);
+  }, [props.location.state.playerId]);
 
   return (
     <div>
