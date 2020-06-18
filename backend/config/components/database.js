@@ -3,7 +3,7 @@ const nconf = require('nconf');
 
 const envVarsSchema = joi
   .object({
-    DB: joi.string().valid(['cryptoi']).required(),
+    DB: joi.string().valid(['snake-game']).required(),
     DB_URI: joi.string().required()
   })
   .unknown()
