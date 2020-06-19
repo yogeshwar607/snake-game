@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from '@reach/router';
 import { postApiCall } from '../services';
+import { Toast, Button , InputGroup, Spinner, Container} from 'react-bootstrap';
+
 const PlayerEntry = (props) => {
   const navigate = useNavigate();
-  const [snake, setSnake] = useState([{ x: 0, y: 0 }]);
+
+  const [showToast, setShowToast] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
 
   const [existingPlayerId, setExistingPlayerId] = useState('');
   const [newPlayerId, setNewPlayerId] = useState('');
@@ -16,11 +20,15 @@ const PlayerEntry = (props) => {
     postApiCall({ data: { playerId: newPlayerId }, url: '/player/create' })
       .then((result) => {
         console.log(result);
-
-        navigate('/gameselection',{state:{playerId:result.playerId}});
+        if (result.success) {
+          navigate('/gameselection', { state: { playerId: result.playerId } });
+        } else {
+          showToastMessage(result.error);
+        }
       })
-      .catch((error) => {
-        console.error(error);
+      .catch((err) => {
+        console.error(err);
+        showToastMessage(err.error);
       });
   };
   const submitPlayerId = (e) => {
@@ -28,25 +36,45 @@ const PlayerEntry = (props) => {
 
     postApiCall({ data: { playerId: existingPlayerId }, url: '/player/get' })
       .then((result) => {
-        console.log(result);
-        navigate('/gameselection',{state:{playerId:result.playerId}});
+        console.log("result",result);
+        if (result.success) {
+          navigate('/gameselection', { state: { playerId: result.playerId } });
+        } else if(result.error){
+          showToastMessage(result.error);
+        }else {
+          showToastMessage(JSON.stringify(result))
+        }
       })
-      .catch((error) => {
-        console.error(error);
+      .catch((err) => {
+        console.error(err);
+        showToastMessage(err.error);
       });
     // make api call and check if exists , proceed to game selection
   };
 
+  const showToastMessage = (msg) => {
+    setErrorMsg( msg);
+    setErrorMsg(msg);
+    setShowToast(true);
+  };
+
   return (
-    <div>
-      <p> Enter player Id </p>
-      <input value={existingPlayerId} onInput={(e) => setExistingPlayerId(e.target.value)} />
-      <button onClick={submitPlayerId}>Submit</button>
+    <div className="container">
+      <Toast onClose={() => setShowToast(false)} show={showToast} delay={3000} autohide>
+        <Toast.Body>{errorMsg}</Toast.Body>
+      </Toast>
+
+      <p>Enter Player Id </p>
+      <input defaultValue={existingPlayerId} onInput={(e) => setExistingPlayerId(e.target.value)} />
+      <Button onClick={submitPlayerId}>Submit</Button>
       <br />
-      <p>In case you do not have playerId , create one below </p>
-      <p> Create player Id </p>
-      <input value={newPlayerId} onInput={(e) => setNewPlayerId(e.target.value)} />
-      <button onClick={createNewPlayerId}>Submit</button>
+      <p>OR</p>
+      <p>In case you do not have Player Id, create one below </p>
+      <p> Create Player Id </p>
+      <input defaultValue={newPlayerId} onInput={(e) => setNewPlayerId(e.target.value)} />
+      <Button onClick={createNewPlayerId}>Submit
+      </Button>
+     
     </div>
   );
 };

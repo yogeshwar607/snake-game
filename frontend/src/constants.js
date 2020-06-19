@@ -1,5 +1,6 @@
-const baseServerUrl = 'http://34.66.100.28:7001'
-
+const BASESERVERURL = 'http://192.168.31.158:7001'
+const GAMEFRAMESPEED = 300
 export {
-  baseServerUrl
+  BASESERVERURL,
+  GAMEFRAMESPEED
 }

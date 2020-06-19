@@ -2,19 +2,22 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import {PlayerEntry, GameSelection} from './components'
+import {PlayerEntry, GameSelection , Game } from './components'
 import * as serviceWorker from './serviceWorker';
 import { Router } from '@reach/router'
 
 ReactDOM.render(
  
    <Router>
-     <App path="/" />
+     {/* <App path="/" /> */}
+     <PlayerEntry  path="/"/>
     <PlayerEntry  path="/playerentry"/>
     <GameSelection  path="/gameselection"/>
+    <Game path="/gameboard" />
   </Router>,
   document.getElementById('root')
 );
+
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

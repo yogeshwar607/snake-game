@@ -1,8 +1,8 @@
-import { baseServerUrl } from '../constants';
+import { BASESERVERURL } from '../constants';
 
 const postApiCall = async ({ url, data }) => {
   try {
-    const apiUrl = `${baseServerUrl}${url}`
+    const apiUrl = `${BASESERVERURL}${url}`
     console.log(apiUrl,JSON.stringify(data) , data)
 
     const requestOptions = {
@@ -16,7 +16,7 @@ const postApiCall = async ({ url, data }) => {
 
     return result;
   } catch (error) {
-    console.log(error);
+    console.log("error",error);
     return error;
   }
 };
