@@ -1,4 +1,4 @@
-const BASESERVERURL = 'http://192.168.31.158:7001'
+const BASESERVERURL = 'http://localhost:7001'
 const GAMEFRAMESPEED = 300
 export {
   BASESERVERURL,
