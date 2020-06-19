@@ -15,11 +15,11 @@ async function handler(req, res, next) {
 
     res.json({
       success: true,
-      message: 'player founs successfully',
+      message: 'player found successfully',
       playerId: result.player_id
     });
   } catch (error) {
-    res.json({
+    res.status(400).json({
       success: false,
       error: error.message
     });

@@ -35,3 +35,7 @@ client - .emit("newplayer", player) , server -
 
 }
 
+
+
+need to stop setInterval after death
+close connection on destroy

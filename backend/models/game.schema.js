@@ -5,7 +5,8 @@ function init() {
   const gameSchema = new Schema(
     {
       game_id: { type: String, required: true, unique: true },
-      details: [{ player_id: { type: String }, score: { type: Number } }]
+      details: [{ player_id: { type: String }, score: { type: Number } }],
+      game_mode:{type:String,default:'multiplayer'}
     },
     { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' } }
   );
